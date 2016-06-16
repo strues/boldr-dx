@@ -1,0 +1,22 @@
+{
+    "verbose": false,
+    "restartable": "rs",
+    "colours": true,
+    "ignore": [
+      "backup",
+      "docs",
+      "src/app",
+      "src/config",
+      "static",
+      "tools"
+    ],
+    "ext": "js json",
+    "env": {
+      "DEBUG":"boldr*"
+    },
+    "watch": [
+      "src/server/**/*.js",
+      "tools/webpack/"
+    ],
+    "exec": "babel-node -- src/server/index.js"
+}
