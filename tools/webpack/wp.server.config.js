@@ -2,10 +2,10 @@ import Koa from 'koa';
 import webpack from 'webpack';
 import _debug from 'debug';
 
-import webpackDevMiddleware from './middleware/webpack-dev';
-import webpackHotMiddleware from './middleware/webpack-hot';
+import webpackDevMiddleware from './middleware/dev-mw';
+import webpackHotMiddleware from './middleware/hot-mw';
 import appCfg from '../../src/config/app.config';
-import webpackConfig from './dev.config';
+import webpackConfig from './wp.dev.config';
 
 const debug = _debug('app:webpack:dev:server');
 const app = new Koa();

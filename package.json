@@ -3,8 +3,41 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "betterScripts": {
+    "start:server": {
+      "command": "nodemon",
+      "env": {
+        "NODE_PATH": "src",
+        "NODE_ENV": "development"
+      }
+    },
+    "compile:server": {
+      "command": "babel src/server -d dist/server",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "test:api": {
+      "command": "mocha --compilers js:./compiler './src/server/**/*-test.js'",
+      "env": {
+        "NODE_ENV": "test",
+        "DEBUG": "app:*"
+      }
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean:dist": "rm -rf static/dist",
+    "compile": "NODE_ENV=production babel-node ./node_modules/.bin/webpack --optimize-minimize --progress --config ./tools/webpack/prod.config",
+    "compile:server": "better-npm-run compile:server",
+    "deploy": "npm run clean:dist && npm run compile && npm run prod",
+    "lint": "./node_modules/.bin/eslint src/common/**/*.js src/common/**/*.jsx src/server/**/*.js",
+    "prod": "NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
+    "start": "concurrently --kill-others --raw \"npm run start:client\" \"npm run start:server\"",
+    "start:client": "babel-node -- tools/webpack/dev.server.js",
+    "start:server": "better-npm-run start:server",
+    "test": "better-npm-run test:api",
+    "test:api": "better-npm-run test:api",
+    "update-deps": "bash tools/scripts/updateDeps.sh"
   },
   "repository": {
     "type": "git",
