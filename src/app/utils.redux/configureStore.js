@@ -8,7 +8,7 @@ import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import promiseMiddleware from 'redux-promise';
 
-import rootReducer from 'state/reducers';
+import { rootReducer } from '../state/reducers';
 
 /**
  * configureStore
@@ -29,8 +29,8 @@ export default function configureStore(initialState, history) {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('state/reducers', () => {
-      const nextReducer = require('state/reducers').default;
+    module.hot.accept('../state/reducers', () => {
+      const nextReducer = require('../state/reducers').default;
       store.replaceReducer(nextReducer);
     });
   }
