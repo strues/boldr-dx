@@ -18,7 +18,7 @@ import { join } from 'path';
 import _debug from 'debug';
 import { handleRender } from './utils/renderReact';
 import config from '../config/app.config';
-
+import routers from './api';
 // Application constants
 const { SERVER_HOST, SERVER_PORT, WEBPACK_DEV_SERVER_PORT } = config;
 
@@ -54,6 +54,14 @@ app.use(async (ctx, next) => {
   ctx.req.body = ctx.request.body;
   await next();
 });
+
+// Load the routers.
+for (const router of routers) {
+  app.use(router.routes());
+  app.use(router.allowedMethods());
+}
+
+app.on('error', err => console.error(err));
 // This is fired every time the server side receives a request
 app.use(handleRender);
 app.use(mount('/static', serve(join(__dirname, '..', '..', 'static'))));

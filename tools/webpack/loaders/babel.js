@@ -1,7 +1,7 @@
 const BABEL_LOADER = {
   cacheDirectory: true,
   plugins: [
-    ['transform-runtime', { polyfill: false, regenerator: false }],
+    ['transform-runtime'],
     'transform-decorators-legacy',
     ['babel-plugin-module-alias', [
       { src: './src/config', expose: 'config' },
