@@ -23,8 +23,6 @@ const config = {
   PG_HOST: process.env.PG_HOST || 'localhost',
   PG_PORT: process.env.PG_PORT || 5432,
   PG_DB_NAME: process.env.PG_DB_NAME || 'boldr',
-  REDIS_HOST: 'localhost',
-  REDIS_PORT: 6379,
   session: {
     ttl: 3600,
     db: 0,
