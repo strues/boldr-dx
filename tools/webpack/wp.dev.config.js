@@ -39,7 +39,8 @@ const {
   __SERVER__,
   __DEV__,
   __PROD__,
-  __DEBUG__
+  __DEBUG__,
+  __TEST__
 } = appCfg;
 
 const HOT_MW_PATH = `http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}/__webpack_hmr`;
@@ -132,6 +133,7 @@ const config = {
       __SERVER__,
       __DEV__,
       __PROD__,
+      __TEST__,
       __DEBUG__
     }),
     webpackIsomorphicToolsPlugin.development()

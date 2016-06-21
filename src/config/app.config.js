@@ -10,6 +10,7 @@ const config = {
   __SERVER__: false,
   __DEV__: NODE_ENV === 'development',
   __PROD__: NODE_ENV === 'production',
+  __TEST__: NODE_ENV === 'test',
   __DEBUG__: !!argv.debug,
   // Entry file
   APP_ENTRY: `${paths.APP_DIR}/client.jsx`,
