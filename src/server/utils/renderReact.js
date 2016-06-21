@@ -9,11 +9,15 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext, createMemoryHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import Helmet from 'react-helmet';
-import configureStore from 'app/utils.redux/configureStore';
-import createRoutes from 'app/config.routes';
-import Html from 'app/utils.render/Html';
+import configureStore from '../../app/utils.redux/configureStore';
+import createRoutes from '../../app/config.routes';
+import Html from '../../app/utils.render/Html';
+import config from 'config/app.config';
+const { __TEST__ } = config;
 
-const head = Helmet.rewind();
+const head = __TEST__ ? null : Helmet.rewind();
+
+
 const renderFullPage = (component, store) => {
   const assets = webpackIsomorphicTools.assets();
   // Render the component to a string

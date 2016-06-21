@@ -10,6 +10,7 @@ const config = {
   __SERVER__: false,
   __DEV__: NODE_ENV === 'development',
   __PROD__: NODE_ENV === 'production',
+  __TEST__: NODE_ENV === 'test',
   __DEBUG__: !!argv.debug,
   // Entry file
   APP_ENTRY: `${paths.APP_DIR}/client.jsx`,
@@ -23,8 +24,6 @@ const config = {
   PG_HOST: process.env.PG_HOST || 'localhost',
   PG_PORT: process.env.PG_PORT || 5432,
   PG_DB_NAME: process.env.PG_DB_NAME || 'boldr',
-  REDIS_HOST: 'localhost',
-  REDIS_PORT: 6379,
   session: {
     ttl: 3600,
     db: 0,
