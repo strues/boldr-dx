@@ -1,5 +1,5 @@
 /**
- * server/api/version/version.router
+ * src/server/api/version/version.router
  * Endpoint displaying the application version
  *
  * @exports {Object} - versionRouter

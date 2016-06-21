@@ -1,6 +1,6 @@
 /**
- * server/utils/renderReact
- * Provides serverside rendering
+ * src/server/utils/renderReact
+ * Provides server-side rendering
  *
  * @exports {Function} - handleRender
  */

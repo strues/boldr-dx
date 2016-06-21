@@ -8,6 +8,7 @@ import createRoutes from './config.routes';
 import configureStore from './utils.redux/configureStore';
 import preRenderMiddleware from './utils.render/preRenderMiddleware';
 
+import './styles/app.scss';
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState, browserHistory);
 // Create an enhanced history that syncs navigation events with the store

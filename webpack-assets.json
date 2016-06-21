@@ -1,9 +1,13 @@
 {
   "javascript": {
+    "common": "http://localhost:3001/build/common.js",
     "app": "http://localhost:3001/build/app.js",
-    "vendors": "http://localhost:3001/build/vendors.js",
-    "common": "http://localhost:3001/build/common.js"
+    "vendors": "http://localhost:3001/build/vendors.js"
   },
   "styles": {},
-  "assets": {}
+  "assets": {
+    "./src/app/styles/app.scss": {
+      "_style": "body {\n  background-color: #e1e1e1; }\n"
+    }
+  }
 }

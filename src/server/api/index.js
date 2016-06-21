@@ -1,5 +1,5 @@
 /**
- * server/api/index.js
+ * src/server/api/index.js
  * Handles all API controller routes
  *
  * @exports {Object} - Koa router objects
