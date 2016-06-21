@@ -1,8 +1,8 @@
 {
   "javascript": {
-    "common": "http://localhost:3001/build/common.js",
     "app": "http://localhost:3001/build/app.js",
-    "vendors": "http://localhost:3001/build/vendors.js"
+    "vendors": "http://localhost:3001/build/vendors.js",
+    "common": "http://localhost:3001/build/common.js"
   },
   "styles": {},
   "assets": {

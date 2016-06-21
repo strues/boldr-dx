@@ -16,7 +16,7 @@ import logger from 'koa-logger';
 import proxy from 'koa-proxy';
 import { join } from 'path';
 import _debug from 'debug';
-import { handleRender } from './utils/renderReact';
+
 import config from '../config/app.config';
 import routers from './api';
 // Application constants
@@ -40,7 +40,7 @@ app
  * @param  {Boolean} __DEV__ Global variable for development environment
  * @return {InitDev}        The initializer class for development
  */
-if (__DEV__) {
+if (!process.env === 'production') {
   app.use(convert(proxy({
     host: `http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}`,
     match: /^\/build\//
@@ -63,9 +63,16 @@ for (const router of routers) {
 
 app.on('error', err => console.error(err));
 // This is fired every time the server side receives a request
-app.use(handleRender);
+// wrapping it like it is so that Im not requiring react files for
+// api testing.
+// @TODO is there a better way?
+if (!process.env === 'test') {
+  const handleRender = require('./utils/renderReact');
+  app.use(handleRender);
+}
+
 app.use(mount('/static', serve(join(__dirname, '..', '..', 'static'))));
 
 app.listen(SERVER_PORT, () => {
-  console.log(`Koa server listening on ${SERVER_PORT}, in ${config.env} mode`);
+  console.log(`Koa server listening on ${SERVER_PORT}, in ${process.env.NODE_ENV} mode`);
 });

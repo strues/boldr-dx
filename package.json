@@ -18,10 +18,9 @@
       }
     },
     "test:api": {
-      "command": "mocha --compilers js:./compiler './src/server/**/*-test.js'",
+      "command": "ava",
       "env": {
-        "NODE_ENV": "test",
-        "DEBUG": "app:*"
+        "NODE_ENV": "test"
       }
     }
   },
@@ -89,7 +88,7 @@
     "style-loader": "^0.13.1",
     "stylelint": "^6.6.0",
     "url-loader": "^0.5.7",
-    "webpack": "^2.1.0-beta.13",
+    "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
