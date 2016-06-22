@@ -15,6 +15,7 @@
     "__DEV__": false,
     "__PROD__": false,
     "__TEST__": false,
+    "jest": true,
     "__DEBUG__": false,
     "webpackIsomorphicTools": false,
     "expect": true,
